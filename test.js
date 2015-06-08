@@ -8,6 +8,9 @@ test('chrome', function(test) {
   server.on('listening', function() {
     var ps = child.spawn('/usr/bin/google-chrome', ['http://localhost:8000']);
 
+    ps.stderr.pipe(process.stderr);
+    ps.stdout.pipe(process.stderr);
+
     server.on('request', function() {
       test.end('request made');
     });
