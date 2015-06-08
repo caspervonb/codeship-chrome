@@ -1,0 +1,22 @@
+{
+  "name": "codeship-chrome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caspervonb/codeship-chrome.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caspervonb/codeship-chrome/issues"
+  },
+  "homepage": "https://github.com/caspervonb/codeship-chrome",
+  "devDependencies": {
+    "tape": "^4.0.0"
+  }
+}
