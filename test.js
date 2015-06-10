@@ -17,8 +17,9 @@ test('firefox', function(test) {
     ps.stderr.pipe(process.stderr);
     ps.stdout.pipe(process.stderr);
 
-    server.on('request', function() {
-      test.end('request made');
+    server.on('request', function(request, response) {
+      test.comment(request.url);
+      test.end();
     });
   });
 
@@ -40,7 +41,8 @@ test('chrome', function(test) {
     ps.stdout.pipe(process.stderr);
 
     server.on('request', function() {
-      test.end('request made');
+      test.comment(request.url);
+      test.end();
     });
   });
 
