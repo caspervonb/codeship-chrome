@@ -41,7 +41,7 @@ test('chrome', function(test) {
     ps.stderr.pipe(process.stderr);
     ps.stdout.pipe(process.stderr);
 
-    server.on('request', function() {
+    server.on('request', function(request, response) {
       test.comment(request.url);
       server.close();
       test.end();
