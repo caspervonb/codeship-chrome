@@ -31,7 +31,7 @@ test('firefox', function(test) {
 });
 
 test('chrome', function(test) {
-  test.timeoutAfter(15000);
+  test.timeoutAfter(60000);
   var server = http.createServer();
 
   server.on('listening', function() {
