@@ -19,8 +19,11 @@ test('firefox', function(test) {
 
     server.on('request', function(request, response) {
       test.comment(request.url);
-      server.close();
-      test.end();
+
+      if (request.url === '/') {
+        server.close();
+        test.end();
+      }
     });
   });
 
@@ -43,8 +46,11 @@ test('chrome', function(test) {
 
     server.on('request', function(request, response) {
       test.comment(request.url);
-      server.close();
-      test.end();
+
+      if (request.url === '/') {
+        server.close();
+        test.end();
+      }
     });
   });
 
