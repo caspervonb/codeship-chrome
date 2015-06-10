@@ -35,7 +35,7 @@ test('chrome', function(test) {
   var server = http.createServer();
 
   server.on('listening', function() {
-    var ps = child.spawn('google-chrome', ['http://localhost:8000/']);
+    var ps = child.spawn('google-chrome', ['--disable-gpu', 'http://localhost:8000/']);
 
     ps.on('close', function(code, signal) {
       console.log('browser closed %s %s', code, signal);
