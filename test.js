@@ -8,6 +8,10 @@ test('chrome', function(test) {
   server.on('listening', function() {
     var ps = child.spawn('/usr/bin/google-chrome', ['http://localhost:8000']);
 
+    ps.on('close', function(code, signal) {
+      console.log('browser closed %s %s', code, signal);
+    });
+    
     ps.stderr.pipe(process.stderr);
     ps.stdout.pipe(process.stderr);
 
