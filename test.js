@@ -20,6 +20,7 @@ test('firefox', function(test) {
       test.comment(request.url);
 
       if (request.url === '/') {
+        ps.kill();
         server.close();
         test.end();
       }
@@ -46,6 +47,7 @@ test('chrome', function(test) {
       test.comment(request.url);
 
       if (request.url === '/') {
+        ps.kill();
         server.close();
         test.end();
       }
