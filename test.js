@@ -3,15 +3,17 @@ var test = require('tape');
 var http = require('http');
 
 test('chrome', function(test) {
+  test.plan(2);
+
   var server = http.createServer();
 
   server.on('listening', function() {
-    test.comment('server listening');
-
+    test.pass('server listening');
+    
     var ps = child.spawn('google-chrome', ['http://localhost:8000/']);
 
     ps.on('close', function(code, signal) {
-      test.comment('browser closed');
+      test.pass('browser closed');
       server.close();
     });
 
@@ -23,7 +25,6 @@ test('chrome', function(test) {
 
       if (request.url === '/') {
         ps.kill();
-        test.end();
       }
     });
   });
